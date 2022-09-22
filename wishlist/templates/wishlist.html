@@ -1,23 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h5>Nama: </h5>
-<p>{{nama}}</p>
+<h1 style= "text-align:center; padding: 10px; border-radius: 10px 10px 10px 10px; box-shadow: 5px 5px 5px; background-color: #16213E; color: #ffffff; font-family: 'Josefin Sans';" >
+    Tutorial Lab PBP/PBD</h1>
+<body style= "font-family: 'Josefin Sans'; background-color: #0F3460; color: #ffffff; ">
+  <h5 style= "font-size: 20px;">Name: </h5>
+  <p style= "font-size: 20px;">{{nama}}</p>
 
-<table>
-    <tr>
-    <th>Nama Barang</th>
-    <th>Harga Barang</th>
-    <th>Deskripsi</th>
+  <table style= "border-collapse: collapse; margin-left: auto; margin-right: auto; border-radius: 10px 10px 10px 10px; overflow: hidden; box-shadow: 8px 8px 8px #131e2c;">
+    
+    <tr style= "background-color: #16213E;">
+      <th style= "padding: 10px">Nama Barang</th>
+      <th style= "padding: 10px">Harga Barang</th>
+      <th style= "padding: 10px">Deskripsi</th>
     </tr>
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
     {% for barang in list_barang %}
-    <tr>
-        <th>{{barang.nama_barang}}</th>
-        <th>{{barang.harga_barang}}</th>
-        <th>{{barang.deskripsi}}</th>
+    <tr style="font-family: 'Josefin Sans'; color: rgb(0, 0, 0);">
+        <th style= "text-align: center; padding: 10px; background-color: #7FBCD2"></thstyle>{{barang.nama_barang}}</th>
+        <th style= "text-align: center; padding: 10px; background-color: #A5F1E9">{{barang.harga_barang}}</th>
+        <th style= "text-align: center; padding: 10px; background-color: #7FBCD2">{{barang.deskripsi}}</th>
     </tr>
 {% endfor %}
 </table>
+
+
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
+<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
 
 {% endblock content %}
