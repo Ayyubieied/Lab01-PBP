@@ -1,32 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar bg-light">
+      <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">Welcome, {{nama}}</span>
+      <button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+      </div>
+    </nav>
+
+
 <h1 style= "text-align:center; padding: 10px; border-radius: 10px 10px 10px 10px; box-shadow: 5px 5px 5px; background-color: #16213E; color: #ffffff; font-family: 'Josefin Sans';" >
     Tutorial Lab PBP/PBD</h1>
-<body style= "font-family: 'Josefin Sans'; background-color: #0F3460; color: #ffffff; ">
-  <h5 style= "font-size: 20px;">Name: </h5>
-  <p style= "font-size: 20px;">{{nama}}</p>
+<body style= "font-family: 'Josefin Sans'; background-color: #FFEEAF; color: #000000; ">
+  <h5 style= "text-align: center; padding-top: 10px; font-size: 20px;">Name: </h5>
+  <p style= "text-align: center; padding-bottom: 10px; font-size: 20px;">{{nama}}</p>
 
-  <table style= "border-collapse: collapse; margin-left: auto; margin-right: auto; border-radius: 10px 10px 10px 10px; overflow: hidden; box-shadow: 8px 8px 8px #131e2c;">
+  <table class="table table-bordered border-primary; table table-dark table-striped", style= "border-collapse: collapse; margin-left: auto; margin-right: auto; border-radius: 10px 10px 10px 10px; overflow: hidden; box-shadow: 8px 8px 8px;">
     
-    <tr style= "background-color: #16213E;">
-      <th style= "padding: 10px">Nama Barang</th>
-      <th style= "padding: 10px">Harga Barang</th>
-      <th style= "padding: 10px">Deskripsi</th>
+    <tr>
+      <th style= "text-align: center; padding: 10px; color: #ffffff">Nama Barang</th>
+      <th style= "text-align: center; padding: 10px; color: #ffffff">Harga Barang</th>
+      <th style= "text-align: center; padding: 10px; color: #ffffff">Deskripsi</th>
     </tr>
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
     {% for barang in list_barang %}
-    <tr style="font-family: 'Josefin Sans'; color: rgb(0, 0, 0);">
-        <th style= "text-align: center; padding: 10px; background-color: #7FBCD2"></thstyle>{{barang.nama_barang}}</th>
-        <th style= "text-align: center; padding: 10px; background-color: #A5F1E9">{{barang.harga_barang}}</th>
-        <th style= "text-align: center; padding: 10px; background-color: #7FBCD2">{{barang.deskripsi}}</th>
+    <tr style="font-family: 'Josefin Sans'; color: #ffffff">
+        <th style= "text-align: center; padding: 10px"></thstyle>{{barang.nama_barang}}</th>
+        <th style= "text-align: center; padding: 10px">{{barang.harga_barang}}</th>
+        <th style= "text-align: center; padding: 10px">{{barang.deskripsi}}</th>
     </tr>
 {% endfor %}
-</table>
+  </table>
 
 
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-
-<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
-
+<h5 style= "text-align: center; padding: 10px;">Sesi terakhir login: {{ last_login }}</h5>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>
 {% endblock content %}
